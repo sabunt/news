@@ -1,0 +1,24 @@
+.container
+  .admin
+    h1
+      | Настройки поста
+    .row
+      .col-md-4
+        = form_for @hotnew, :url => url_for(:controller => 'hot_news', :action => 'create'), method:'post' do |f|
+          .form-group
+            = f.label :title
+            = f.text_field :title, value: @hotnew.title,  class: 'form-control'
+          .form-group
+            = f.label :description
+            = f.text_area :description, value: @hotnew.description, class: 'form-control'
+
+
+
+
+
+          .form-group
+            = f.label :deadline
+            = f.text_field :deadline, value: @hotnew.deadline.strftime("%d/%m/%Y %H:%M"), class: 'form-control datetimepicker' 
+
+         
+          = f.submit 'Отправить', class: "btn btn-default"
